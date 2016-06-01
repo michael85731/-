@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title>台灣發票中獎城市簡易統計長條圖</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+  setGraph();
+});
+
+function setGraph(){
+  var originData = <%= city_times %>;
+  var forGraph = originData.slice(0,10);
+  var div_data_bind = d3.select("body").selectAll("div").data(forGraph);
+  div_set = div_data_bind.enter().append("div");
+  div_data_bind.exit().remove();
+  div_set.text(function(d,i){
+    return "No." + (i+1) + " " + d[0];
+  });
+
+  div_set.style("height", "20px");
+  div_set.style("background", "#66FF66");
+  div_set.style("margin", "5px");
+  div_set.style("width", function(d,i) {
+    return (d[1] * 5)+"px";
+  });
+}
+</script>
+</html>
