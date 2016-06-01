@@ -78,7 +78,7 @@ def to_array(arg)
 end
 
 def call_url(url)
-  raw_data = nokogiri::HTML(open(url)) #用open-uri這個library抓進url的資料
+  raw_data = Nokogiri::HTML(open(url)) #用open-uri這個library抓進url的資料
 
   if !(raw_data.css(".table_a tr").empty?)
   	temp = []
