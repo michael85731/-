@@ -1,5 +1,5 @@
-# require "nokogiri"
-# require "open-uri"
+require "nokogiri"
+require "open-uri"
 
 def call(env)
   cities = get_data
@@ -78,7 +78,6 @@ def to_array(arg)
 end
 
 def call_url(url)
-  # url = URI("http://service.etax.nat.gov.tw/etwmain/front/ETW183W3?year=105&startMonth=01&endMonth=02")
   raw_data = Nokogiri::HTML(open(url)) #用open-uri這個library抓進url的資料
 
   if !(raw_data.css(".table_a tr").empty?)
