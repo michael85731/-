@@ -1,5 +1,5 @@
-require "nokogiri"
-require "open-uri"
+# require "nokogiri"
+# require "open-uri"
 
 def call(env)
   cities = get_data
